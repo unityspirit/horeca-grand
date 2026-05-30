@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <meta name="description" content="Grand Maison — гастрономический ресторан премиум-класса. Авторская кухня, банкеты, кейтеринг, винная карта." />
+  <title>Grand Maison — Гастрономический ресторан</title>
+  <link rel="icon" type="image/svg+xml" href="images/logo.svg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Manrope:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <!-- CINEMATIC CANVAS BACKGROUND -->
+  <canvas id="gl-canvas"></canvas>
+  <!-- PARTICLE OVERLAY -->
+  <canvas id="particle-canvas"></canvas>
+  <!-- GRAIN OVERLAY -->
+  <div class="grain-overlay"></div>
+
+  <!-- NAVBAR -->
+  <nav class="navbar" id="navbar">
+    <div class="nav-inner">
+      <a href="#hero" class="nav-logo" data-scroll="0">
+        <img src="images/logo.svg" alt="Grand Maison Logo" class="logo-img" />
+        <span class="logo-text">GRAND <span class="logo-accent">MAISON</span></span>
+      </a>
+      <ul class="nav-links" id="nav-links">
+        <li><a href="#" data-scroll="1" class="nav-link">Услуги</a></li>
+        <li><a href="#" data-scroll="2" class="nav-link">Интерьер</a></li>
+        <li><a href="#" data-scroll="3" class="nav-link">Кухня</a></li>
+        <li><a href="#" data-scroll="4" class="nav-link">О нас</a></li>
+        <li><a href="#" data-scroll="5" class="nav-link nav-cta">Бронировать</a></li>
+      </ul>
+      <button class="burger" id="burger" aria-label="Меню">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- MOBILE DRAWER -->
+  <div class="nav-scrim" id="nav-scrim" hidden></div>
+  <div class="nav-drawer" id="nav-drawer" hidden>
+    <button class="drawer-close" id="drawer-close" aria-label="Закрыть">✕</button>
+    <ul class="drawer-links" id="drawer-links">
+      <li><a href="#" data-scroll="1" class="drawer-link">Услуги</a></li>
+      <li><a href="#" data-scroll="2" class="drawer-link">Интерьер</a></li>
+      <li><a href="#" data-scroll="3" class="drawer-link">Кухня</a></li>
+      <li><a href="#" data-scroll="4" class="drawer-link">О нас</a></li>
+      <li><a href="#" data-scroll="5" class="drawer-link">Бронировать</a></li>
+    </ul>
+    <div class="drawer-contacts">
+      <a href="#" target="_blank" class="drawer-social">Telegram</a>
+      <a href="#" target="_blank" class="drawer-social">Instagram</a>
+    </div>
+  </div>
+
+  <!-- MAIN SCROLL CONTAINER -->
+  <div id="ui-layer">
+    <div class="stage">
+
+      <!-- SECTION 0: HERO -->
+      <section class="page is-active" data-index="0" id="hero">
+        <div class="page-inner hero-inner">
+          <img src="images/logo.svg" alt="Grand Maison" class="hero-logo reveal-3d">
+          <div class="hero-badge reveal-3d">ГАСТРОНОМИЯ • БАНКЕТЫ • ВИННАЯ КАРТА</div>
+          <h1 class="hero-title reveal-3d">
+            <span class="gradient-text">GRAND MAISON</span>
+          </h1>
+          <p class="hero-subtitle reveal-3d">Искусство вкуса в каждом блюде. Авторская кухня, изысканная атмосфера и безупречный сервис для ваших особенных моментов.</p>
+          <div class="hero-cta-group reveal-3d">
+            <a href="#" data-scroll="5" class="btn-primary">Забронировать столик</a>
+            <a href="#" data-scroll="2" class="btn-outline">Наш интерьер</a>
+          </div>
+          <div class="hero-scroll-hint">
+            <div class="scroll-line"></div>
+            <span>прокрутите</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- SECTION 1: SERVICES -->
+      <section class="page" data-index="1" id="services">
+        <div class="page-inner">
+          <div class="section-badge reveal-3d">Наши услуги</div>
+          <h2 class="section-title reveal-3d">Гастрономические <span class="gradient-text">впечатления</span></h2>
+          <p class="section-desc reveal-3d">От интимного ужина на двоих до грандиозного банкета — мы создаём незабываемые кулинарные события</p>
+          <div class="services-grid reveal-3d">
+            <div class="service-card">
+              <div class="service-icon">🍽️</div>
+              <h3>Дегустационные сеты</h3>
+              <p>Авторские сеты из 5–9 перемен блюд от шеф-повара. Сезонное меню с лучшими локальными и импортными продуктами.</p>
+            </div>
+            <div class="service-card">
+              <div class="service-icon">🥂</div>
+              <h3>Банкеты и торжества</h3>
+              <p>Организация свадеб, юбилеев и корпоративных мероприятий. Индивидуальное меню, декор и программа под ключ.</p>
+            </div>
+            <div class="service-card">
+              <div class="service-icon">🍷</div>
+              <h3>Винная карта</h3>
+              <p>Коллекция из 200+ позиций вин со всего мира. Персональные рекомендации от нашего сомелье к каждому блюду.</p>
+            </div>
+            <div class="service-card">
+              <div class="service-icon">🚐</div>
+              <h3>Кейтеринг</h3>
+              <p>Выездное обслуживание мероприятий любого масштаба. Ресторанное качество на вашей площадке — от 10 до 500 гостей.</p>
+            </div>
+            <div class="service-card">
+              <div class="service-icon">🎩</div>
+              <h3>VIP-зал</h3>
+              <p>Приватная зона для деловых встреч и закрытых ужинов. Полная конфиденциальность, персональный официант и шеф-повар.</p>
+            </div>
+            <div class="service-card">
+              <div class="service-icon">🎶</div>
+              <h3>Живая музыка</h3>
+              <p>Еженедельные выступления джазовых музыкантов и пианистов. Создаём атмосферу, которая дополняет вкус.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- SECTION 2: COLLECTIONS (INTERIOR) -->
+      <section class="page" data-index="2" id="collections">
+        <div class="page-inner">
+          <div class="section-badge reveal-3d">Атмосфера и стиль</div>
+          <h2 class="section-title reveal-3d">Пространство <span class="gradient-text">Grand Maison</span></h2>
+          <p class="section-desc reveal-3d">Каждая деталь интерьера продумана для создания идеальной атмосферы вашего вечера.</p>
+          <div class="collections-grid reveal-3d">
+            <div class="collection-card card-large">
+              <img src="images/hero-coat.png" alt="Основной зал Grand Maison" class="collection-img" />
+              <div class="collection-overlay">
+                <span class="collection-label">Основной зал</span>
+                <h3>Изысканный интерьер</h3>
+                <p>120 посадочных мест, панорамные окна, живая зелень</p>
+              </div>
+            </div>
+            <div class="collection-card card-medium">
+              <img src="images/hats.png" alt="Лаунж-бар" class="collection-img" />
+              <div class="collection-overlay">
+                <span class="collection-label">Лаунж-бар</span>
+                <h3>Коктейльный бар</h3>
+                <p>Авторские коктейли и лучшие сорта виски</p>
+              </div>
+            </div>
+            <div class="collection-card card-medium">
+              <img src="images/texture.png" alt="Авторская подача" class="collection-img" />
+              <div class="collection-overlay">
+                <span class="collection-label">Авторская подача</span>
+                <h3>Искусство на тарелке</h3>
+                <p>Каждое блюдо — произведение кулинарного искусства</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- SECTION 3: PRODUCTION (KITCHEN) -->
+      <section class="page" data-index="3" id="production">
+        <div class="page-inner">
+          <div class="section-badge reveal-3d">Наша кухня</div>
+          <h2 class="section-title reveal-3d">Кухня<br><span class="gradient-text">Grand Maison</span></h2>
+          <p class="section-desc reveal-3d">От фермерских продуктов до шедевра на вашей тарелке — мы контролируем каждый этап</p>
+          <div class="production-layout reveal-3d">
+            <div class="production-image-wrap">
+              <img src="images/workshop.png" alt="Профессиональная кухня" class="production-img" />
+            </div>
+            <div class="production-stats">
+              <div class="stat-card">
+                <span class="stat-number">15+</span>
+                <span class="stat-label">лет гастрономического опыта</span>
+              </div>
+              <div class="stat-card">
+                <span class="stat-number">200+</span>
+                <span class="stat-label">мероприятий в год</span>
+              </div>
+              <div class="stat-card">
+                <span class="stat-number">100%</span>
+                <span class="stat-label">свежие продукты ежедневно</span>
+              </div>
+              <div class="stat-card">
+                <span class="stat-number">30+</span>
+                <span class="stat-label">позиций в меню</span>
+              </div>
+              <div class="production-steps">
+                <div class="prod-step"><span class="step-num">01</span><span class="step-text">Отбор лучших фермерских и импортных продуктов</span></div>
+                <div class="prod-step"><span class="step-num">02</span><span class="step-text">Разработка сезонного меню шеф-поваром</span></div>
+                <div class="prod-step"><span class="step-num">03</span><span class="step-text">Приготовление по авторским технологиям</span></div>
+                <div class="prod-step"><span class="step-num">04</span><span class="step-text">Дизайнерская подача каждого блюда</span></div>
+                <div class="prod-step"><span class="step-num">05</span><span class="step-text">Сервис и сопровождение от сомелье</span></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- SECTION 4: ABOUT -->
+      <section class="page" data-index="4" id="about">
+        <div class="page-inner">
+          <div class="section-badge reveal-3d">О нас</div>
+          <h2 class="section-title reveal-3d">Почему выбирают<br><span class="gradient-text">Grand Maison</span></h2>
+          <p class="section-desc reveal-3d">Мы не просто кормим — мы создаём впечатления, которые остаются с вами навсегда</p>
+          <div class="about-grid reveal-3d">
+            <div class="about-card">
+              <div class="about-icon">👨‍🍳</div>
+              <h3>Авторская кухня</h3>
+              <p>Наш шеф-повар — призёр международных конкурсов. Каждое блюдо — результат творческого поиска и безупречной техники.</p>
+            </div>
+            <div class="about-card">
+              <div class="about-icon">🍰</div>
+              <h3>Собственная кондитерская</h3>
+              <p>Десерты и выпечка ручной работы. Торты на заказ, муссы, макаруны и эксклюзивные сладости для вашего стола.</p>
+            </div>
+            <div class="about-card">
+              <div class="about-icon">🏛️</div>
+              <h3>Атмосфера и интерьер</h3>
+              <p>Дизайн от итальянской студии. Живые цветы, свечи, панорамные окна — каждая деталь создаёт особенное настроение.</p>
+            </div>
+            <div class="about-card">
+              <div class="about-icon">🍇</div>
+              <h3>Сомелье</h3>
+              <p>Персональный подбор вин к каждому блюду. Дегустации, винные ужины и эксклюзивные позиции из частных коллекций.</p>
+            </div>
+          </div>
+          <div class="about-cta reveal-3d">
+            <a href="#" target="_blank" class="btn-primary">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.562 8.248l-1.97 9.289c-.145.658-.537.818-1.084.508l-3-2.21-1.447 1.394c-.16.16-.295.295-.605.295l.213-3.053 5.56-5.023c.242-.213-.054-.333-.373-.12L7.16 14.26l-2.962-.924c-.643-.204-.657-.643.136-.953l11.57-4.461c.537-.194 1.006.131.658.326z"/></svg>
+              Написать в Telegram
+            </a>
+            <a href="#" target="_blank" class="btn-outline">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+              Instagram
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <!-- SECTION 5: CONTACT -->
+      <section class="page" data-index="5" id="contact">
+        <div class="page-inner">
+          <div class="section-badge reveal-3d">Бронирование</div>
+          <h2 class="section-title reveal-3d">Забронируйте <span class="gradient-text">ваш вечер</span></h2>
+          <p class="section-desc reveal-3d">Оставьте заявку — мы подберём лучший столик и составим идеальное меню для вашего события</p>
+          <div class="contact-layout reveal-3d">
+            <div class="contact-form-wrap">
+              <form class="contact-form" id="contact-form">
+                <div class="form-group">
+                  <label for="name">Ваше имя</label>
+                  <input type="text" id="name" name="name" placeholder="Как к вам обращаться?" required />
+                </div>
+                <div class="form-group">
+                  <label for="phone">Телефон или Telegram</label>
+                  <input type="text" id="phone" name="phone" placeholder="+7 (___) ___-__-__" required />
+                </div>
+                <div class="form-group">
+                  <label for="interest">Тип мероприятия</label>
+                  <select id="interest" name="interest">
+                    <option value="">Выберите формат</option>
+                    <option>Ужин на двоих</option>
+                    <option>День рождения / Юбилей</option>
+                    <option>Свадебный банкет</option>
+                    <option>Корпоративное мероприятие</option>
+                    <option>Деловой ужин</option>
+                    <option>Дегустационный сет</option>
+                    <option>Кейтеринг (выездной)</option>
+                    <option>Другое</option>
+                  </select>
+                </div>
+                <div class="form-group">
+                  <label for="message">Пожелания</label>
+                  <textarea id="message" name="message" rows="3" placeholder="Дата, количество гостей, особые пожелания..."></textarea>
+                </div>
+                <button type="submit" class="btn-primary form-submit">
+                  Забронировать
+                  <span class="btn-arrow">→</span>
+                </button>
+              </form>
+            </div>
+            <div class="contact-info-wrap">
+              <div class="contact-info-card">
+                <h3>Контакты</h3>
+                <div class="contact-item">
+                  <span class="contact-icon">📱</span>
+                  <div>
+                    <strong>Telegram</strong>
+                    <a href="#" target="_blank">ВАШ КОНТАКТ</a>
+                  </div>
+                </div>
+                <div class="contact-item">
+                  <span class="contact-icon">📞</span>
+                  <div>
+                    <strong>Телефон</strong>
+                    <a href="tel:+70001234567">+7 (000) 123-45-67</a>
+                  </div>
+                </div>
+                <div class="contact-item">
+                  <span class="contact-icon">📍</span>
+                  <div>
+                    <strong>Адрес</strong>
+                    <span>ул. Центральная, 1 — ваш город</span>
+                  </div>
+                </div>
+                <div class="contact-item">
+                  <span class="contact-icon">⏰</span>
+                  <div>
+                    <strong>Режим работы</strong>
+                    <span>Ежедневно: 12:00 – 00:00</span>
+                  </div>
+                </div>
+              </div>
+              <div class="contact-promise-card">
+                <div class="promise-icon">✦</div>
+                <h4>Наше обещание</h4>
+                <p>Подтвердим бронирование в течение 15 минут. Составим персональное меню под ваши предпочтения и бюджет.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div style="text-align:center;margin-top:32px"><a href="https://globalteamgroup.github.io/global-plus/#page-4" class="btn-outline" style="font-size:16px;padding:14px 40px;display:inline-block;text-decoration:none">ВЕРНУТЬСЯ НА ГЛАВНУЮ</a></div>
+        <!-- FOOTER -->
+        <footer class="footer">
+          <div class="footer-inner">
+            <span class="footer-logo">GRAND MAISON</span>
+            <span class="footer-copy">© 2025 GRAND MAISON. Гастрономический ресторан премиум-класса.</span>
+            <div class="footer-socials">
+              <a href="#" target="_blank">TG</a>
+              <a href="#" target="_blank">IG</a>
+            </div>
+          </div>
+        </footer>
+      </section>
+
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
